@@ -41,6 +41,26 @@ The project appears to be in its initial stages with:
 - Empty README suggesting the main application is yet to be implemented
 - Clean, minimal structure ready for expansion
 
+## Current Progress
+
+The developer has successfully completed the initial TDD learning phase:
+
+### Completed
+- Basic Go testing setup with table-driven tests
+- Simple markdown parsing for headers (`#`, `##`, `###`) 
+- Basic bold text parsing (`**bold**`)
+- Discovered the limitations of string replacement approach
+
+### Current Challenge
+The developer has reached the natural breaking point where simple string replacement fails. The test case `"# test **bold heading**"` → `"<h1>test <b>bold heading</b></h1>"` reveals why AST and proper parsing are needed.
+
+### Next Steps (Ready for tokenization phase)
+1. **Tokenization**: Break input into meaningful tokens (HASH, TEXT, BOLD_START, etc.)
+2. **AST Structure**: Represent document as a tree structure  
+3. **Parser**: Build the AST from tokens
+
+The developer is motivated and ready to learn parsing concepts having experienced the pain that AST solves.
+
 ## Current State
 
-This is a skeleton project with the foundational structure in place but no main application code yet. The builder tool in `tools/builder/` suggests this may be a static site generator or similar blog platform.
+Active development in `tools/builder/` with working tests for basic markdown features. Ready to transition from string replacement to proper parsing techniques.
