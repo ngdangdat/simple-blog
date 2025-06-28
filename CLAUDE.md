@@ -54,13 +54,33 @@ The developer has successfully completed the initial TDD learning phase:
 ### Current Challenge
 The developer has reached the natural breaking point where simple string replacement fails. The test case `"# test **bold heading**"` → `"<h1>test <b>bold heading</b></h1>"` reveals why AST and proper parsing are needed.
 
-### Next Steps (Ready for tokenization phase)
-1. **Tokenization**: Break input into meaningful tokens (HASH, TEXT, BOLD_START, etc.)
-2. **AST Structure**: Represent document as a tree structure  
-3. **Parser**: Build the AST from tokens
+### Learning Progress on Tokenization
+The developer has made significant conceptual progress understanding tokenization:
 
-The developer is motivated and ready to learn parsing concepts having experienced the pain that AST solves.
+**Key Concepts Mastered:**
+- **State tracking**: Using stacks to remember context (inside bold markup, etc.)
+- **Lookahead**: Need to read ahead when encountering `#` to distinguish H1/H2/H3
+- **Branching logic**: Specialized scanning functions for different patterns
+- **Position management**: Functions must return where to continue scanning
+- **Token emission timing**: Don't emit immediately, collect until pattern is clear
+
+**Current Understanding:**
+- Recognizes that tokenization goes: Raw Text → Tokens → AST  
+- Understands the main scanning loop delegates to specialized functions
+- Grasps that `scanHeading()`, `scanBold()` functions handle pattern recognition
+- Knows functions must return both token type and next scan position
+
+**Ready for Implementation:**
+- Token type definitions (HASH, DOUBLE_HASH, TEXT, BOLD_START, etc.)
+- Main tokenizer loop structure
+- Specialized scanning functions with lookahead
+
+### Next Steps
+1. **Implement token types** and basic tokenizer structure
+2. **Build scanning functions** for headers and bold text
+3. **Write tokenizer tests** to verify token stream output
+4. **Design AST structure** based on token stream
 
 ## Current State
 
-Active development in `tools/builder/` with working tests for basic markdown features. Ready to transition from string replacement to proper parsing techniques.
+Active development in `tools/builder/` with conceptual foundation for tokenization complete. Ready to implement the tokenizer with clear understanding of parsing principles.
